@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Game Palacio - E-Ticket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #f5d46f;
+      --black: #0b0b0c;
+      --dark: #141414;
+      --border: #2c2c2c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #1c1c1e, #0b0b0c);
+      color: var(--gold);
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .ticket {
+      max-width: 720px;
+      width: 100%;
+      background: var(--dark);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .ticket:hover {
+      transform: scale(1.01);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-bar img.logo-left {
+      height: 45px;
+    }
+
+    .title-center {
+      text-align: center;
+      margin: 1.2rem 0;
+    }
+
+    .title-center img {
+      max-width: 65%;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .details, .participants, .total, .qr, .footer {
+      margin-top: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+    }
+
+    .qr {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .qr img {
+      width: 150px;
+      height: 150px;
+      border-radius: 1rem;
+      border: 2px solid var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    .qr img:hover {
+      transform: scale(1.08);
+    }
+
+    .share-btn {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .share-btn button {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 0.9rem 1.7rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .share-btn button:hover {
+      background: #ffe08a;
+    }
+
+    .map {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .map a {
+      color: var(--gold);
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.05;
+      width: 120px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <div class="top-bar">
+      <img src="THE-GAME-PALACIO-LOGO-FINAL-07.png.webp" alt="Small Logo" class="logo-left">
+    </div>
+
+    <div class="title-center">
+      <img src="game palacio.png" alt="The Game Palacio Title">
+    </div>
+
+    <div class="details">
+      <p><strong>Date:</strong> 28 May 2025</p>
+      <p><strong>Time:</strong> 5:00 PM</p>
+      <p><strong>Category:</strong> General</p>
+      <p><strong>Location:</strong> Phoenix Marketcity, Kurla</p>
+    </div>
+
+    <div class="participants">
+      <h3>Participants</h3>
+      <table>
+        <tr><th>Name</th><th>Amount (₹)</th></tr>
+        <tr><td>Aditya</td><td>600</td></tr>
+        <tr><td>Harsh</td><td>600</td></tr>
+        <tr><td>Siddharth</td><td>600</td></tr>
+        <tr><td>Sookret</td><td>600</td></tr>
+        <tr><td>Ishteq</td><td>600</td></tr>
+        <tr><td>Soham</td><td>600</td></tr>
+        <tr><td>Melvin</td><td>600</td></tr>
+        <tr><td>Hassan</td><td>600</td></tr>
+      </table>
+    </div>
+
+    <div class="total">
+      <p>Wednesday Offer: <span style="color:lime;">-₹1600</span></p>
+      <p>Total Payable: ₹3200</p>
+    </div>
+
+    <div class="qr">
+      <p>Scan to verify</p>
+      <img src="game_palacio_qr.png" alt="QR Code">
+    </div>
+
+    <div class="share-btn">
+      <button onclick="shareTicket()">Share Ticket</button>
+    </div>
+
+    <div class="map">
+      <a href="https://www.google.com/maps/dir//Unit+No.+UG1+%26+UG2,+Upper+Ground,+PHOENIX+MARKETCITY,+Mall,+LBS+Marg,+Ashok+Nagar,+Kurla,+Mumbai,+Maharashtra+400070/@19.0853439,72.8047108,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3be7c923fc907fd1:0x7162a6c2168d6bb4!2m2!1d72.8871125!2d19.0853622?entry=ttu" target="_blank">
+        View on Map
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>Need help? Contact support@gamepalacio.com</p>
+      <p>This is a digital ticket. Show at entry. Carry valid ID proof.</p>
+    </div>
+
+    <img src="game palacio.png" class="watermark" alt="Tiger Watermark">
+  </div>
+
+  <script>
+    function shareTicket() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'The Game Palacio E-Ticket',
+          text: 'Check out my ticket for The Game Palacio event!',
+          url: window.location.href
+        }).catch((err) => console.error('Share failed:', err));
+      } else {
+        alert('Sharing not supported on this device.');
+      }
+    }
+  </script>
+</body>
+</html>
